@@ -1,0 +1,38 @@
+.error {
+  font-size: 0.75rem;
+  color: var(--accent-danger);
+  margin-top: 4px;
+  display: block;
+}
+
+/* Type Toggle */
+.typeToggle {
+  display: flex;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+}
+
+.typeBtn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: calc(var(--radius-md) - 3px);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.typeActive {
+  color: white;
+}
+
+.typeExpense {
+  background: var(--accent-danger);
+}
+
+.typeIncome {
+  background: var(--accent-success);
+}

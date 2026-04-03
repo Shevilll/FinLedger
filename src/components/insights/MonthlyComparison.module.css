@@ -1,0 +1,23 @@
+.container {
+  padding: var(--space-lg);
+  min-height: 400px;
+}
+
+.header {
+  margin-bottom: var(--space-lg);
+}
+
+.title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.chartWrap {
+  width: 100%;
+}

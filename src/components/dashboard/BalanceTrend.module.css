@@ -1,0 +1,62 @@
+.container {
+  padding: var(--space-lg);
+  min-height: 380px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.title {
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.legend {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.legendDotBalance {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C4963C;
+}
+
+.legendDotIncome {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5D9E6F;
+}
+
+.legendDotExpense {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C26B52;
+}
+
+.chartWrap {
+  width: 100%;
+}

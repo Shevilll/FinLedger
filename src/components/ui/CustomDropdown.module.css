@@ -1,0 +1,96 @@
+.dropdownContainer {
+    position: relative;
+    width: 100%;
+}
+
+.dropdownToggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 9px 13px;
+    background: var(--bg-input);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    text-align: left;
+}
+
+.dropdownToggle.open,
+.dropdownToggle:focus,
+.dropdownToggle:active {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px var(--border-glow);
+}
+
+.selectedText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 8px;
+}
+
+.icon {
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    background: var(--bg-card-solid);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    z-index: 50;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+/* Custom Scrollbar for Dropdown Menu */
+.dropdownMenu::-webkit-scrollbar {
+    width: 4px;
+}
+.dropdownMenu::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 4px;
+}
+.dropdownMenu::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+.optionsList {
+    list-style: none;
+    padding: 4px;
+    margin: 0;
+}
+
+.optionItem {
+    padding: 8px 12px;
+    margin-bottom: 2px;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.optionItem:last-child {
+    margin-bottom: 0;
+}
+
+.optionItem:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.optionItem.selected {
+    background: var(--accent-primary);
+    color: #fff;
+    font-weight: 500;
+}

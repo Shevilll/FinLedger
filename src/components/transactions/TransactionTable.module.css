@@ -1,0 +1,188 @@
+.tableWrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-bottom: 1px solid var(--border-primary);
+  background: var(--bg-tertiary);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-secondary);
+  vertical-align: middle;
+}
+
+.table tbody tr {
+  transition: background var(--transition-fast);
+}
+
+.table tbody tr:hover {
+  background: var(--bg-tertiary);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Sortable */
+.sortable {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sortable:hover {
+  color: var(--text-primary);
+}
+
+.sortInactive {
+  opacity: 0.3;
+}
+
+.sortActive {
+  color: var(--accent-primary);
+}
+
+/* Cells */
+.dateCell {
+  white-space: nowrap;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8125rem;
+}
+
+.descriptionCell {
+  display: flex;
+  flex-direction: column;
+}
+
+.merchant {
+  font-weight: 500;
+}
+
+.description {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.amountCell {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.income {
+  color: var(--accent-success);
+}
+
+.expense {
+  color: var(--accent-danger);
+}
+
+/* Actions */
+.actionsCol {
+  width: 100px;
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.actionBtn {
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  color: var(--text-tertiary);
+  transition: all var(--transition-fast);
+}
+
+.actionBtn:hover {
+  background: var(--bg-card);
+  color: var(--accent-primary);
+}
+
+.deleteBtn:hover {
+  color: var(--accent-danger);
+}
+
+/* Empty */
+.emptyWrap {
+  padding: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .table thead {
+    display: none;
+  }
+
+  .table tbody tr {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .table td::before {
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .table td:nth-child(1)::before { content: "Date"; }
+  .table td:nth-child(2)::before { content: "Description"; }
+  .table td:nth-child(3)::before { content: "Category"; }
+  .table td:nth-child(4)::before { content: "Type"; }
+  .table td:nth-child(5)::before { content: "Amount"; }
+  .table td:nth-child(6)::before { content: "Actions"; }
+
+  .descriptionCell {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .actions {
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .actionsCol {
+    width: auto;
+  }
+}

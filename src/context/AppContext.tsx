@@ -94,8 +94,6 @@ function loadFromLocalStorage(): Partial<AppState> | null {
             const parsed = JSON.parse(stored);
             return {
                 transactions: parsed.transactions || undefined,
-                theme: parsed.theme || undefined,
-                role: parsed.role || undefined,
             };
         }
     } catch {
@@ -109,30 +107,42 @@ function saveToLocalStorage(state: AppState) {
     try {
         localStorage.setItem('finDashState', JSON.stringify({
             transactions: state.transactions,
-            theme: state.theme,
-            role: state.role,
         }));
     } catch {
         // ignore
     }
 }
 
-export function AppProvider({ children }: { children: ReactNode }) {
-    const [state, dispatch] = useReducer(appReducer, initialState, (initial) => {
+export function AppProvider({
+    children,
+    initialRole = 'admin',
+    initialTheme = 'dark',
+}: {
+    children: ReactNode;
+    initialRole?: UserRole;
+    initialTheme?: Theme;
+}) {
+    const defaultState = {
+        ...initialState,
+        role: initialRole,
+        theme: initialTheme,
+    };
+
+    const [state, dispatch] = useReducer(appReducer, defaultState, (initial) => {
         const stored = loadFromLocalStorage();
         if (stored) {
             return {
                 ...initial,
                 transactions: stored.transactions || initial.transactions,
-                theme: stored.theme || initial.theme,
-                role: stored.role || initial.role,
             };
         }
         return initial;
     });
 
-    // Persist to localStorage
+    // Persist to localStorage and cookies
     useEffect(() => {
+        document.cookie = `finDashTheme=${state.theme}; path=/; max-age=31536000`;
+        document.cookie = `finDashRole=${state.role}; path=/; max-age=31536000`;
         saveToLocalStorage(state);
     }, [state.transactions, state.theme, state.role]);
 

@@ -36,12 +36,12 @@ A modern, premium finance dashboard built with **Next.js 14**, **TypeScript**, a
 - Toggle roles via the header switch for demonstration
 
 ### Additional Features
-- 🌙 **Dark/Light mode** with smooth theme switching
-- 💾 **LocalStorage persistence** for transactions, role, and theme
-- ✨ **Framer Motion animations** — staggered reveals, hover effects, page transitions
-- 📱 **Fully responsive** — sidebar collapses to bottom nav on mobile
-- 📊 **Recharts** for professional data visualizations
-- 🎨 **Custom design system** — CSS variables, glassmorphism, gradient accents
+- **Dark/Light mode** with smooth theme switching
+- **LocalStorage persistence** for transactions, role, and theme
+- **Framer Motion animations** — staggered reveals, hover effects, page transitions
+- **Fully responsive** — sidebar collapses to bottom nav on mobile
+- **Recharts** for professional data visualizations
+- **Custom design system** — CSS variables, glassmorphism, gradient accents
 
 ---
 
@@ -70,8 +70,8 @@ A modern, premium finance dashboard built with **Next.js 14**, **TypeScript**, a
 
 ```bash
 # Clone the repository
-git clone <repo-url>
-cd finance-dashboard
+git clone https://github.com/Shevilll/FinLedger.git
+cd FinLedger
 
 # Install dependencies
 npm install

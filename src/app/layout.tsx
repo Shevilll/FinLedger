@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import Sidebar from "@/components/layout/Sidebar";
@@ -10,34 +11,19 @@ export const metadata: Metadata = {
   keywords: "finance, dashboard, transactions, budgeting, spending insights",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const theme = cookieStore.get('finDashTheme')?.value || 'dark';
+  const role = cookieStore.get('finDashRole')?.value || 'admin';
+
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                let theme = 'dark';
-                const stored = localStorage.getItem('finDashState');
-                if (stored) {
-                  const parsed = JSON.parse(stored);
-                  if (parsed.theme) {
-                    theme = parsed.theme;
-                  }
-                }
-                document.documentElement.setAttribute('data-theme', theme);
-              } catch (e) {}
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" data-theme={theme} suppressHydrationWarning>
       <body>
-        <AppProvider>
+        <AppProvider initialRole={role as any} initialTheme={theme as any}>
           <div className="app-layout">
             <Sidebar />
             <Header />

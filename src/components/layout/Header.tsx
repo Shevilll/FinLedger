@@ -75,6 +75,7 @@ export default function Header() {
                     </button>
                     <motion.div
                         className={styles.roleSlider}
+                        initial={false}
                         animate={{ x: isAdmin ? 0 : '100%' }}
                         transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                     />
